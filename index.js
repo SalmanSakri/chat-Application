@@ -4,9 +4,7 @@ const cors = require("cors");
 const socketIO = require("socket.io");
 
 const app=express();
-const port= process.env.PORT||8033 ;
-
-
+const port= process.env.PORT;
 const users=[{}];
 
 app.use(cors());
@@ -41,53 +39,5 @@ io.on("connection",(socket)=>{
 
 server.listen(port,()=>{
     console.log(`Working`);
-    console.log(`server is start port number  http://localhost:${port}`);
+    // console.log(`server is start port number  http://localhost:${port}`);
 })
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const cors = require("cors");
-// const http = require("http");
-// const socketIO = require("socket.io");
-// const { Socket } = require("dgram");
-// require("dotenv").config();
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-
-// const port =process.env.PORT|| 8033;
-// const server=http.createServer(app);
-// const io = socketIO(server);
-
-// const users=[{}];
-
-
-// io.on("connection",(Socket)=>{
-
-//     // console.log("new connections");
-
-//     Socket.on('joined',({user})=>{
-//         users[Socket.id]=user;
-//         // console.log(`${user} has joined`);
-//         Socket.broadcast.emit('userJoined',{user:"Admin",message:`${users[Socket.id]} has joined`});
-//         Socket.emit('welcom',{user:"Admin", massage:`Welcome to the Chat ${users[Socket.id]}`});
-//     })
-
-//     Socket.on("message",()=>{
-//         io.emit('sendMessage',{user:users[id],message})
-//     })
-
-//     Socket.on('disconnect',()=>{
-//         Socket.broadcast.emit("leave",{user:"Admin",message:`${users[Socket.id]} hsa left`})
-//         // console.log('User letf')
-//     })
-
-// })
-
-
-// app.get("/", (req, res) => {
-//     res.json("server start")
-// })
-
-// server.listen(port, () => {
-//     console.log(`server is start port number  http://localhost:${port}`);
-// })
